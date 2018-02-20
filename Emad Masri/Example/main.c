@@ -4,7 +4,7 @@
  * Created: 20-Feb-18 7:18:25 PM
  * Author : Emad
  */ 
-#define F_CPU 1000000UL
+#define F_CPU 2000000UL
 #include <avr/io.h>
 #include <util/delay.h>
 
@@ -34,22 +34,19 @@ int main(void)
 	// Clock source: T0 pin Rising Edge
 	// Mode: Fast PWM top=0xFF
 	// OC0 output: Inverted PWM
-	TCCR0=(1<<WGM00) | (1<<COM01) | (1<<COM00) | (1<<WGM01) | (0<<CS02) | (0<<CS01) | (1<<CS00);
-	TCNT0=0x00;
-	OCR0=0x00;
+TCCR0=(1<<WGM00) | (1<<COM01) | (0<<COM00) | (1<<WGM01) | (0<<CS02) | (1<<CS01) | (0<<CS00);	OCR0=0x00;
 
 	// Timer(s)/Counter(s) Interrupt(s) initialization
-	TIMSK=(0<<OCIE2) | (0<<TOIE2) | (0<<TICIE1) | (0<<OCIE1A) | (0<<OCIE1B) | (0<<TOIE1) | (0<<OCIE0) | (0<<TOIE0);
 PORTB=(0<<PORTB0);
 	while (1)
 	{
 	
-		OCR0=0x00;
+		//OCR0=0x00;
 		if (PINA==(1<<PINA0))
 		{
+			_delay_ms(150);
 			PORTB=(1<<PORTB7);
-			OCR0=0xAB;
-			_delay_ms(3200);
+			OCR0=90;
 		}
 		
 	}
