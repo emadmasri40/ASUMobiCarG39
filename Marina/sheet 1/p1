@@ -1,0 +1,15 @@
+int y=13;
+
+
+void setup() { 
+   pinMode(y,OUTPUT);
+}
+
+void loop()
+ {
+   digitalWrite(y,HIGH);
+   delay(500);
+   digitalWrite(y,LOW);
+   delay(1500);
+
+ }
