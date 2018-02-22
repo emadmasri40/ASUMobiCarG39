@@ -1,0 +1,37 @@
+int x=5;
+int y=6;
+int z=7;
+int c=4;
+
+
+
+
+void setup() { 
+   pinMode(y,OUTPUT);pinMode(c,OUTPUT);pinMode(z,OUTPUT);pinMode(x,OUTPUT);
+}
+
+void loop()
+ {
+   digitalWrite(c,HIGH);
+   delay(1000);
+   digitalWrite(c,LOW);
+   digitalWrite(x,HIGH);
+   delay(1000);
+   digitalWrite(x,LOW);
+   digitalWrite(y,HIGH);
+   delay(1000);
+   digitalWrite(y,LOW);
+   digitalWrite(z,HIGH);
+   delay(1000);
+   digitalWrite(z,LOW);
+   digitalWrite(y,HIGH);
+   delay(1000);
+   digitalWrite(y,LOW);
+   digitalWrite(x,HIGH);
+   delay(1000);
+   digitalWrite(x,LOW);
+   digitalWrite(c,HIGH);
+   delay(1000);
+   
+
+ }
