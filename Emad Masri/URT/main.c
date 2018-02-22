@@ -4,6 +4,8 @@
  * Created: 21-Feb-18 11:34:42 PM
  * Author : Emad
  */ 
+*/ hit
+*/This code is being edited
 #define F_CPU 16000000UL
 #include <avr/io.h>
 #include <util/delay.h>
@@ -47,7 +49,8 @@ uint16_t UBRR_Value = 103;
 
 UBRRL = (uint8_t) UBRR_Value;
 
-UBRRH = (uint8_t) (UBRR_Value >> 8);
+UBRRH = (uint8_t) (UBRR_Value >> 8);
+
 unsigned char uart_recieve (void)
 {
 	while(~(UCSRA) & (1<<RXC));                   // wait while data is being received
@@ -60,14 +63,16 @@ void UART_send_char(char data)
 	
 	while(!(UCSRA & (1<<UDRE) ) );
 	
-	UDR = data;                            
+	UDR = data;
+                            
 }
 void UART_send_string(char data0)
 {
 	
 	while( data0 >0)
 	UART_send_char( data0++);
-	UART_send_char('\0');}
+	UART_send_char('\0');
+}
 while (1)
 {
 	_delay_ms(20);
