@@ -22,6 +22,10 @@ int main()
 		 _delay_ms(1000);
 		PORTA = 0b00001000;       
 		 _delay_ms(1000);
+		 PORTA = 0b00000100;
+		 _delay_ms(1000);
+		 PORTA = 0b00000010;
+		 _delay_ms(1000);
 	}
 		return 0;
 }
