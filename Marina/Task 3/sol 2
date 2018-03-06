@@ -1,0 +1,52 @@
+#define F_CPU 1000000UL
+#include <avr/io.h>
+#include <util/delay.h>
+
+uint8_t sum(uint8_t d,uint8_t f)
+{	uint8_t k=d+f;return k ;}
+
+uint8_t sub( uint8_t a,uint8_t b )
+{	int8_t u=a-b;return u ;}
+
+void and(uint8_t a,uint8_t b)
+{   PORTA=a ; PORTB=b;
+	for(int i=0;i<8;i++)
+	{ if((PORTA&(1<<i))&&(PORTB&(1<<i))) PORTD|=(1<<i);}
+	
+}
+
+void or(uint8_t a,uint8_t b)
+{
+	PORTA=a ; PORTB=b;
+	for(int i=0;i<8;i++)
+	{   if((PORTA&(1<<i))||(PORTB&(1<<i))) PORTD|=(1<<i);}
+}
+
+int8_t not(uint8_t a)
+{    PORTA=a;
+	for(int i=0;i<8;i++)
+	{   if(PORTA&(1<<i)) PORTD&=~(1<<i);
+		else PORTD|=(1<<i);}
+	
+}
+
+
+
+int main(void)
+{
+	DDRD=0b11111111;
+
+	
+	and(13,15);
+	_delay_ms(2000);
+	PORTD=0b00000000;
+	
+	or(13,15);
+	_delay_ms(2000);
+	PORTD=0b00000000;
+	
+	not(13);
+   _delay_ms(2000);
+   PORTD=0b00000000;	
+	return 0;
+}
